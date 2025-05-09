@@ -1,8 +1,14 @@
 // type Json = null, boolean, number, string, array, object
 
-def parseNull(jsonString: String): Option[(Null, String)] = jsonString match
-  case s"null$remainingJsonString" => Some((null, remainingJsonString))
-  case _                           => None
+case class JsonParserValue[T](
+    value: T,
+    remString: String
+)
+
+def parseNull(jsonString: String): Option[JsonParserValue[Null]] =
+  jsonString match
+    case s"null$remString" => Some(JsonParserValue(null, remString))
+    case _                 => None
 
 @main def main(): Unit =
   val jsonString = """{"primes": [2, 3, 5], "evens": [2, 4, 6]}"""
