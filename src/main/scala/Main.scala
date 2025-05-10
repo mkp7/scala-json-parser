@@ -1,3 +1,5 @@
+import scala.util.matching.Regex
+
 // type Json = null, boolean, number, string, array, object
 
 case class JsonParserValue[T](
@@ -16,6 +18,14 @@ def parseBool(jsonString: String): Option[JsonParserValue[Boolean]] =
     case s"false$remString" => Some(JsonParserValue(false, remString))
     case _                  => None
 
+val numberPattern =
+  """^(-?(0|([1-9]\d*))(\.\d+)?((e|E)(\+|-)?\d+)?)(.*)""".r.unanchored
+def parseNumber(jsonString: String): Option[JsonParserValue[Double]] =
+  jsonString match
+    case numberPattern(jsonNumber, remMatches*) =>
+      Some(JsonParserValue(jsonNumber.toDouble, remMatches.last))
+    case _ => None
+
 @main def main(): Unit =
   val jsonString = """{"primes": [2, 3, 5], "evens": [2, 4, 6]}"""
   val map: Map[String, List[Int]] =
@@ -31,5 +41,11 @@ def parseBool(jsonString: String): Option[JsonParserValue[Boolean]] =
   val jsonBoolString = """false123abc"""
   val jsonBoolData = parseBool(jsonBoolString)
   jsonBoolData match
+    case Some(value) => println(value)
+    case None        => println("no value")
+
+  val jsonNumberString = """-123.2E-4abcnull"""
+  val jsonNumberData = parseNumber(jsonNumberString)
+  jsonNumberData match
     case Some(value) => println(value)
     case None        => println("no value")
