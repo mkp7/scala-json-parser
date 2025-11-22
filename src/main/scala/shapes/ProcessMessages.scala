@@ -1,5 +1,5 @@
 // src/main/scala/ProcessMessages.scala
-package scalaJsonParser.shapes
+package shapes
 
 object ProcessMessages:
   def apply(message: Message): Message =
@@ -17,3 +17,4 @@ object ProcessMessages:
     end match
   end apply
 end ProcessMessages
+

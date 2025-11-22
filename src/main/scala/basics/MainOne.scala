@@ -1,5 +1,5 @@
 // src/main/scala/scalaJsonParser/introScala/MainOne.scala
-package scalaJsonParser.introScala
+package basics
 
 object MainOne:
   def main(params: Array[String]): Unit =
@@ -22,3 +22,4 @@ def main(params: Array[String]): Unit =
     .map(_.toUpperCase)
     .mkString("[", " ^ ", "]")
   println(output)
+

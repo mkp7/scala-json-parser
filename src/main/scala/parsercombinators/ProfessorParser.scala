@@ -1,4 +1,4 @@
-package my.practice.ParserCombinators
+package parsercombinators
 
 import scalaz._
 import scala.util.parsing.combinator._
@@ -143,3 +143,4 @@ val profsData2 =
                 1997: Steven Awodey
                 1956: William Howard
 """.stripMargin
+

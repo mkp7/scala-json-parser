@@ -1,5 +1,5 @@
 // src/main/scala/Shapes.scala
-package scalaJsonParser.shapes
+package shapes
 
 case class Point(x: Double = 0.0, y: Double = 0.0):
   def shift(deltaX: Double = 0.0, deltaY: Double = 0.0) =
@@ -18,3 +18,4 @@ case class Rectangle(lowerLeft: Point, height: Double, width: Double)
 case class Triangle(point1: Point, point2: Point, point3: Point) extends Shape
 
 val rec = Rectangle(Point(y = 2.0, x = 1.0), 2.3, 4.0)
+

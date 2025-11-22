@@ -1,4 +1,4 @@
-package my.practice.ParserCombinators
+package parsercombinators
 
 import scala.util.parsing.combinator._
 
@@ -15,3 +15,4 @@ object TestSimpleParser extends SimpleParser {
     }
   }
 }
+

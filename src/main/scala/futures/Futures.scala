@@ -1,5 +1,5 @@
 // src/main/scala/Futures.scala
-package scalaJsonParser.futures
+package futures
 
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -84,3 +84,4 @@ def Futures(): Unit =
     "Maharashtra" -> "Mumbai",
     "Karnataka" -> "Bangalore"
   )
+

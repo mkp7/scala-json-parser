@@ -1,6 +1,6 @@
-package my.practice.monads
+package monads
 
-import my.practice.monads.OptionFunctor.map
+import monads.OptionFunctor.map
 
 /*
 ==Monoid==
@@ -110,3 +110,4 @@ def HelloMonads(): Unit =
   println(s"someValueTwoAlt: $someValueTwoAlt")
 
   ()
+

@@ -1,3 +1,5 @@
+package jsonparser
+
 import scala.util.matching.Regex
 
 // type Json = null, boolean, number, string, array, object
@@ -53,3 +55,4 @@ val valueParsers = List(parseNull, parseBool, parseNumber)
   jsonNumberData match
     case Some(value) => println(value)
     case None        => println("no value")
+

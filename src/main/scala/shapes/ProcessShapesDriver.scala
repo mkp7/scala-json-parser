@@ -1,5 +1,5 @@
 // src/main/scala/ProcessShapesDriver.scala
-package scalaJsonParser.shapes
+package shapes
 
 val func: Message => String = message =>
   message match
@@ -47,3 +47,4 @@ def ProcessShapesDriver =
     val response = ProcessMessages(message)
     println(response)
   }
+
