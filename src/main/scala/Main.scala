@@ -26,10 +26,14 @@ def parseNumber(jsonString: String): Option[JsonParserValue[Double]] =
       Some(JsonParserValue(jsonNumber.toDouble, remMatches.last))
     case _ => None
 
+val valueParsers = List(parseNull, parseBool, parseNumber)
+// def parseValue(jsonString: String): Any =
+
 @main def main(): Unit =
-  val jsonString = """{"primes": [2, 3, 5], "evens": [2, 4, 6]}"""
+  val jsonString =
+    """{"primes": [2, 3, 5], "evens": [2, 4, 6], "nullKey": null}"""
   val map: Map[String, List[Int]] =
-    upickle.default.read[Map[String, List[Int]]](jsonString)
+    upickle.default.read[Map[String, List[Int] | Null]](jsonString)
   println(map)
 
   val jsonNullString = """null123abc"""

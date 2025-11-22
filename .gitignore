@@ -15,6 +15,11 @@ project/local-plugins.sbt
 .sbt-scripted/
 local.sbt
 
+# Scala Build
+.scala-build
+.clj-kondo
+.lsp
+
 # Bloop
 .bsp
 
